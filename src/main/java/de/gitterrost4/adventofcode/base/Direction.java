@@ -1,7 +1,7 @@
 package de.gitterrost4.adventofcode.base;
 
 public enum Direction {
-    NORTH, SOUTH, EAST, WEST;
+    NORTH, SOUTH, EAST, WEST, NORTHEAST, SOUTHEAST, NORTHWEST, SOUTHWEST;
 
     public Direction opposite(){
         return switch(this){
@@ -9,6 +9,10 @@ public enum Direction {
             case SOUTH -> NORTH;
             case EAST -> WEST;
             case WEST -> EAST;
+            case NORTHEAST -> SOUTHWEST;
+            case NORTHWEST -> SOUTHEAST;
+            case SOUTHEAST -> NORTHWEST;
+            case SOUTHWEST -> NORTHEAST;
         };
     }
 
@@ -30,5 +34,9 @@ public enum Direction {
             case 3 -> NORTH;
             default -> throw new IllegalArgumentException("input not recognized");
         };
+    }
+
+    public static Direction[] values4(){
+        return new Direction[]{NORTH, SOUTH, EAST, WEST};
     }
 }

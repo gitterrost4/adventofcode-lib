@@ -14,6 +14,10 @@ public record Coordinate(int x, int y) {
             case SOUTH ->  getSouth(amount);
             case EAST ->  getEast(amount);
             case WEST ->  getWest(amount);
+            case NORTHWEST -> getNorthWest(amount);
+            case NORTHEAST -> getNorthEast(amount);
+            case SOUTHWEST -> getSouthWest(amount);
+            case SOUTHEAST -> getSouthEast(amount);
         };
     }
     public Coordinate getEast() {
@@ -43,6 +47,18 @@ public record Coordinate(int x, int y) {
     public Coordinate getSouth(int amount) {
         return new Coordinate(x + amount, y);
     }
+
+    public Coordinate getNorthWest() { return getNorthWest(1); }
+    public Coordinate getNorthWest(int amount) { return getWest(amount).getNorth(amount); }
+
+    public Coordinate getNorthEast() { return getNorthEast(1); }
+    public Coordinate getNorthEast(int amount) { return getEast(amount).getNorth(amount); }
+
+    public Coordinate getSouthWest() { return getSouthWest(1); }
+    public Coordinate getSouthWest(int amount) { return getWest(amount).getSouth(amount); }
+
+    public Coordinate getSouthEast() { return getSouthEast(1); }
+    public Coordinate getSouthEast(int amount) { return getEast(amount).getSouth(amount); }
 
     public Stream<Coordinate> neighbors(){
         return Stream.of(getNorth(),getWest(),getSouth(),getEast());
