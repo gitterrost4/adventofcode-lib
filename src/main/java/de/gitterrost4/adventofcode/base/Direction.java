@@ -16,6 +16,58 @@ public enum Direction {
         };
     }
 
+    public Direction clockwiseNext8(){
+        return switch(this){
+            case NORTH -> EAST;
+            case SOUTH -> WEST;
+            case EAST -> SOUTH;
+            case WEST -> NORTH;
+            case NORTHEAST -> SOUTHEAST;
+            case NORTHWEST -> NORTHEAST;
+            case SOUTHEAST -> SOUTHWEST;
+            case SOUTHWEST -> NORTHWEST;
+        };
+    }
+
+    public Direction counterClockwiseNext8(){
+        return switch(this){
+            case NORTH -> WEST;
+            case WEST -> SOUTH;
+            case SOUTH -> EAST;
+            case EAST -> NORTH;
+            case NORTHEAST -> NORTHWEST;
+            case NORTHWEST -> SOUTHWEST;
+            case SOUTHWEST -> SOUTHEAST;
+            case SOUTHEAST -> NORTHEAST;
+        };
+    }
+
+    public Direction clockwiseNext(){
+        return switch(this){
+            case NORTH -> NORTHEAST;
+            case NORTHEAST -> EAST;
+            case EAST -> SOUTHEAST;
+            case SOUTHEAST -> SOUTH;
+            case SOUTH -> SOUTHWEST;
+            case SOUTHWEST -> WEST;
+            case WEST -> NORTHWEST;
+            case NORTHWEST -> NORTH;
+        };
+    }
+
+    public Direction counterClockwiseNext(){
+        return switch(this){
+            case NORTH -> NORTHWEST;
+            case NORTHWEST -> WEST;
+            case WEST -> SOUTHWEST;
+            case SOUTHWEST -> SOUTH;
+            case SOUTH -> SOUTHEAST;
+            case SOUTHEAST -> EAST;
+            case EAST -> NORTHEAST;
+            case NORTHEAST -> NORTH;
+        };
+    }
+
     public static Direction fromLaymanTerms(String input){
         return switch (input){
             case "U" -> NORTH;
