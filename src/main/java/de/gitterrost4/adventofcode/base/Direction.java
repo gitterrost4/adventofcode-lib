@@ -16,7 +16,7 @@ public enum Direction {
         };
     }
 
-    public Direction clockwiseNext8(){
+    public Direction clockwiseNext4(){
         return switch(this){
             case NORTH -> EAST;
             case SOUTH -> WEST;
@@ -29,7 +29,7 @@ public enum Direction {
         };
     }
 
-    public Direction counterClockwiseNext8(){
+    public Direction counterClockwiseNext4(){
         return switch(this){
             case NORTH -> WEST;
             case WEST -> SOUTH;
