@@ -4,7 +4,7 @@ plugins {
 }
 
 group = "de.gitterrost4"
-version = "1.3"
+version = "1.4"
 
 repositories {
     mavenCentral()
@@ -24,7 +24,7 @@ publishing {
         create<MavenPublication>("maven") {
             groupId = "de.gitterrost4"
             artifactId = "adventofcode-lib"
-            version = "1.3"
+            version = "1.4"
 
             from(components["java"])
         }
