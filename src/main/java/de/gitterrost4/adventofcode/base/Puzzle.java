@@ -28,6 +28,10 @@ public abstract class Puzzle {
     protected List<String> input(){
         return getResourceLines(resourceDir+"/input.txt");
     }
+    protected String asRaw(List<String> input){
+        return String.join("\n", input);
+    }
+
 
     protected List<List<String>> asSingle(List<String> input){
         return input.stream().map(x-> Arrays.stream(x.split("")).toList()).toList();
